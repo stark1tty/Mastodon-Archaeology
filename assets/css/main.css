@@ -280,7 +280,8 @@ label {
 
   nav#sidebar {
     width: 100%;
-    height: auto;
+    height: auto !important;
+    min-height: 0 !important;
     position: static;
     flex-direction: row;
     flex-wrap: wrap;
@@ -299,7 +300,8 @@ label {
   }
 
   #sidebar-sections {
-    display: none;
+    display: none !important;
+    flex: none;
   }
 
   #sidebar-footer {
