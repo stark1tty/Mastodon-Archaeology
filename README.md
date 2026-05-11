@@ -1,6 +1,7 @@
-<img src=/assets/mammoth.png>
+<center><img src="/assets/mammoth.png" height="200">
 
 # 🗿 Archaeologists of Mastodon 🔬
+</center>
 
 This repository provides a most simple web app that helps to bulk follow archaeologists on the FOSS microblogging service Mastodon. 
 
