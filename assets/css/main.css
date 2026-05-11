@@ -111,10 +111,6 @@ main#content {
   padding: 32px 48px;
 }
 
-main#content > * {
-  max-width: 800px;
-}
-
 section {
   margin-bottom: 48px;
 }
@@ -315,7 +311,6 @@ label {
 
 @media (min-width: 1400px) {
   main#content {
-    max-width: 960px;
     font-size: 105%;
   }
 }
