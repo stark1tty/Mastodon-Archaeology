@@ -191,6 +191,47 @@ fieldset {
   background-color: #fdf6e8;
 }
 
+#list-search {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+#search-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 7px 12px;
+  border: 1px solid #7a5230;
+  border-radius: 4px;
+  background-color: #fdf6e8;
+  color: #1e0f06;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+#search-input:focus {
+  outline: none;
+  border-color: #3d2314;
+  box-shadow: 0 0 0 2px rgba(61, 35, 20, 0.15);
+}
+
+#category-filter {
+  padding: 7px 12px;
+  border: 1px solid #7a5230;
+  border-radius: 4px;
+  background-color: #fdf6e8;
+  color: #1e0f06;
+  font-family: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+#category-filter:focus {
+  outline: none;
+  border-color: #3d2314;
+}
+
 #list-controls {
   margin-bottom: 10px;
   display: flex;

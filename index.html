@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/main.css?v=8" />
+    <link rel="stylesheet" href="assets/css/main.css?v=9" />
     <script src="assets/js/app.js"></script>
     <script src="assets/js/papaparse.min.js"></script>
   </head>
@@ -72,6 +72,13 @@
         <section id="follow-list">
           <h2>🦣 The List</h2>
           <p>Select the accounts you want to follow and download a CSV to import into Mastodon.</p>
+
+          <div id="list-search">
+            <input type="search" id="search-input" placeholder="Search by name, handle, or keyword…" autocomplete="off">
+            <select id="category-filter">
+              <option value="">All categories</option>
+            </select>
+          </div>
 
           <div id="list-controls">
             <button type="button" id="select-all-users">Select all</button>

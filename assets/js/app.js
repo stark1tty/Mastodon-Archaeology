@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // We're on the form page
       buildUserSelectionForm(data)
       populateSidebarSections()
+      initSearchAndFilter()
     } else {
       // We're on the tootformat page
       buildSimpleList(data)
@@ -212,6 +213,60 @@ function generateCSV () {
   link.click() // This will download the data file named `CSV_DOWNLOAD_NAME`.
 
   setTimeout(function () { link.parentElement.removeChild(link) }, 60_000) // After a minute, clean up the link
+}
+
+/**
+ * Wires up the search input and category dropdown to filter the user list
+ */
+function initSearchAndFilter () {
+  const searchInput = document.getElementById('search-input')
+  const categorySelect = document.getElementById('category-filter')
+  if (!searchInput || !categorySelect) return
+
+  // Populate category dropdown from section headings
+  const headings = document.querySelectorAll('#user-list h3')
+  for (const h of headings) {
+    const opt = document.createElement('option')
+    opt.value = h.id
+    opt.textContent = h.textContent
+    categorySelect.appendChild(opt)
+  }
+
+  function applyFilter () {
+    const query = searchInput.value.toLowerCase().trim()
+    const category = categorySelect.value
+
+    // Determine which section each item belongs to
+    let currentSection = null
+    for (const node of document.getElementById('user-list').children) {
+      if (node.tagName === 'H3') {
+        currentSection = node.id
+        continue
+      }
+      if (!node.classList.contains('input-list-item')) continue
+
+      const matchesQuery = query === '' || node.textContent.toLowerCase().includes(query)
+      const matchesCategory = category === '' || currentSection === category
+      node.style.display = matchesQuery && matchesCategory ? '' : 'none'
+    }
+
+    // Hide section headings where all items are hidden
+    for (const h of headings) {
+      let sibling = h.nextElementSibling
+      let hasVisible = false
+      while (sibling && sibling.tagName !== 'H3') {
+        if (sibling.classList.contains('input-list-item') && sibling.style.display !== 'none') {
+          hasVisible = true
+          break
+        }
+        sibling = sibling.nextElementSibling
+      }
+      h.style.display = hasVisible ? '' : 'none'
+    }
+  }
+
+  searchInput.addEventListener('input', applyFilter)
+  categorySelect.addEventListener('change', applyFilter)
 }
 
 /**
