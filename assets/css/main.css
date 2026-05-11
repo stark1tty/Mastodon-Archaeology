@@ -1,5 +1,4 @@
-/* makes internal link scroll smoothly */
-html{
+html {
   scroll-behavior: smooth;
 }
 
@@ -7,42 +6,209 @@ html{
   box-sizing: border-box;
 }
 
+/* ── Palette ──────────────────────────────────────────────
+   Body bg:      #b8966a  (mid ochre — cave stone)
+   Content bg:   #f5ead0  (light parchment)
+   Sidebar bg:   #2c1a0e  (deep cave brown)
+   Text:         #1e0f06  (near-black warm brown)
+   Heading:      #3d2314
+   Link:         #5c2905  (dark amber, readable on parchment)
+   Accent:       #7a5230
+   Button bg:    #6b4220
+   Button text:  #f5ead0
+──────────────────────────────────────────────────────── */
+
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 95%;
-  background-color: #e8d5a3;
-  color: #2c1a0e;
+  background-color: #b8966a;
+  color: #1e0f06;
   margin: 0;
   padding: 0;
 }
 
-/* Main app wrapper */
+/* ── Layout ─────────────────────────────────────────────── */
+
 div#app {
-  width: 70vw;
-  padding: 20px;
-  margin: 0 auto;
+  display: flex;
+  min-height: 100vh;
 }
 
-/* This is the main form used to select users to generate a CSV from */
-form#main-form {
-  margin-top: 10px;
+/* ── Sidebar ─────────────────────────────────────────────── */
+
+nav#sidebar {
+  width: 180px;
+  min-width: 180px;
+  background-color: #2c1a0e;
+  color: #f5ead0;
+  padding: 24px 16px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
-form#main-form fieldset legend {
-  font-weight: bold;
+
+#sidebar-brand {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+nav#sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+nav#sidebar ul li a {
+  display: block;
+  color: #e8c98a;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  transition: background 0.15s, color 0.15s;
+}
+
+nav#sidebar ul li a:hover {
+  background-color: #3d2314;
+  color: #f5ead0;
+}
+
+#sidebar-footer {
+  margin-top: auto;
+  font-size: 0.8rem;
+}
+
+#sidebar-footer a {
+  color: #a88050;
+  text-decoration: none;
+}
+
+#sidebar-footer a:hover {
+  color: #e8c98a;
+}
+
+/* ── Main content ────────────────────────────────────────── */
+
+main#content {
+  flex: 1;
+  background-color: #f5ead0;
+  padding: 32px 48px;
+  max-width: 860px;
+}
+
+section {
+  margin-bottom: 48px;
+}
+
+/* ── Hero ────────────────────────────────────────────────── */
+
+#hero {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+#hero img {
+  margin-top: 12px;
+}
+
+/* ── Typography ──────────────────────────────────────────── */
+
+h1, h2 {
+  color: #3d2314;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 8px;
+  font-size: 1.8rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+  margin-top: 0;
+  border-bottom: 2px solid #c8a870;
+  padding-bottom: 6px;
+}
+
+a {
+  color: #5c2905;
+  font-weight: 500;
+}
+
+a:hover {
+  color: #3d2314;
+}
+
+p, ul, li {
+  line-height: 1.65;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #7a5230;
+  margin: 24px 0;
 }
 
 footer {
   font-style: italic;
   font-size: small;
+  color: #5a3a20;
 }
 
-div.input-list-item {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 5px;
-    padding-left: 27.3px;
-    text-indent: -22.3px;
+/* ── Form & fieldset ─────────────────────────────────────── */
 
+form#main-form {
+  margin-top: 10px;
+}
+
+form#main-form fieldset legend {
+  font-weight: bold;
+}
+
+fieldset {
+  border: 1px solid #7a5230;
+  border-radius: 4px;
+  background-color: #fdf6e8;
+}
+
+#list-controls {
+  margin-bottom: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+
+button {
+  background-color: #6b4220;
+  color: #f5ead0;
+  border: 1px solid #3d2314;
+  border-radius: 4px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+button:hover {
+  background-color: #3d2314;
+}
+
+button#generate-csv {
+  margin-top: 10px;
+}
+
+/* ── Checkbox list ───────────────────────────────────────── */
+
+div.input-list-item {
+  padding: 5px 5px 5px 27.3px;
+  text-indent: -22.3px;
 }
 
 div.input-list-item input[type=checkbox] {
@@ -53,68 +219,50 @@ label {
   cursor: pointer;
 }
 
-@media (max-width: 1000px) {
+/* ── Responsive ──────────────────────────────────────────── */
+
+@media (max-width: 768px) {
   div#app {
-    width: 100vw;
-    margin: 0;
-    font-size: 92%;
+    flex-direction: column;
+  }
+
+  nav#sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 12px;
+  }
+
+  #sidebar-brand {
+    font-size: 1.5rem;
+  }
+
+  nav#sidebar ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  #sidebar-footer {
+    margin-top: 0;
+  }
+
+  main#content {
+    padding: 20px 16px;
+  }
+
+  #list-controls {
+    flex-direction: column;
   }
 }
 
-@media (min-width: 1500px) {
-  div#app {
-    width: 60vw;
+@media (min-width: 1400px) {
+  main#content {
+    max-width: 960px;
     font-size: 105%;
-    max-width: 9000px;
   }
-}
-
-h1 {
-  margin-top: 32px;
-}
-
-hr {
-  border: none;
-  border-top: 1px solid #7a5230;
-}
-
-fieldset {
-  border: 1px solid #7a5230;
-  border-radius: 4px;
-}
-
-a {
-  color: #7a3f10;
-}
-
-a:hover {
-  color: #3d2314;
-}
-
-h1, h2 {
-  color: #3d2314;
-  text-align: center;
-}
-
-button {
-  background-color: #8b6340;
-  color: #f0e0c0;
-  border: 1px solid #3d2314;
-  border-radius: 4px;
-  padding: 5px 12px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #7a5230;
-}
-
-/* spacing between "none" and "get all" button */
-button#select-none-users {
-  margin-right: 15px;
-}
-
-/* spacing before "Get CSV for selected accounts" */
-button#generate-csv {
-  margin-top: 10px;
 }
