@@ -37,8 +37,8 @@ div#app {
 /* ── Sidebar ─────────────────────────────────────────────── */
 
 nav#sidebar {
-  width: 180px;
-  min-width: 180px;
+  width: 220px;
+  min-width: 220px;
   background-color: #2c1a0e;
   color: #f5ead0;
   padding: 24px 16px;
@@ -108,7 +108,7 @@ nav#sidebar h3 a:hover {
 main#content {
   flex: 1;
   background-color: #f5ead0;
-  padding: 32px 48px;
+  padding: 32px 64px;
 }
 
 section {
