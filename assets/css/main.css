@@ -109,7 +109,10 @@ main#content {
   flex: 1;
   background-color: #f5ead0;
   padding: 32px 48px;
-  max-width: 860px;
+}
+
+main#content > * {
+  max-width: 800px;
 }
 
 section {
