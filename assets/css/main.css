@@ -118,7 +118,7 @@ section {
 
 h1, h2 {
   color: #3d2314;
-  text-align: center;
+  text-align: center !important;
 }
 
 h1 {
