@@ -274,6 +274,10 @@ label {
 /* ── Responsive ──────────────────────────────────────────── */
 
 @media (max-width: 768px) {
+  body {
+    background-color: #f5ead0;
+  }
+
   div#app {
     flex-direction: column;
   }
