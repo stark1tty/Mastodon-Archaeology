@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (formElement() !== null) {
       // We're on the form page
       buildUserSelectionForm(data)
+      populateSidebarSections()
     } else {
       // We're on the tootformat page
       buildSimpleList(data)
@@ -121,6 +122,7 @@ function buildUserSelectionForm (users) {
    if (user.account.trim() === '•••••') {
      const heading = document.createElement('h3')
      heading.textContent = user.name
+     heading.id = 'section-' + user.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-$/, '')
      container.appendChild(heading)
      continue
    }
@@ -210,6 +212,28 @@ function generateCSV () {
   link.click() // This will download the data file named `CSV_DOWNLOAD_NAME`.
 
   setTimeout(function () { link.parentElement.removeChild(link) }, 60_000) // After a minute, clean up the link
+}
+
+/**
+ * Populates the sidebar with anchor links to each list section heading
+ */
+function populateSidebarSections () {
+  const container = document.getElementById('sidebar-sections')
+  if (!container) return
+  const headings = document.querySelectorAll('#user-list h3')
+  if (headings.length === 0) return
+  const label = document.createElement('p')
+  label.id = 'sidebar-sections-label'
+  label.textContent = 'In the list:'
+  container.appendChild(label)
+  for (const h of headings) {
+    const a = document.createElement('a')
+    a.href = '#' + h.id
+    a.textContent = h.textContent
+    const h3 = document.createElement('h3')
+    h3.appendChild(a)
+    container.appendChild(h3)
+  }
 }
 
 /**
