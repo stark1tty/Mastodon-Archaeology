@@ -32,6 +32,7 @@ body {
 div#app {
   display: flex;
   min-height: 100vh;
+  gap: 0;
 }
 
 /* ── Sidebar ─────────────────────────────────────────────── */
@@ -284,8 +285,9 @@ label {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    padding: 12px 16px;
-    gap: 12px;
+    padding: 10px 16px;
+    gap: 8px;
+    margin: 0;
   }
 
   #sidebar-brand {
@@ -296,12 +298,20 @@ label {
     display: inline-block;
   }
 
+  #sidebar-sections {
+    display: none;
+  }
+
   #sidebar-footer {
     margin-top: 0;
+    width: 100%;
+    border-top: 1px solid #3d2314;
+    padding-top: 8px;
   }
 
   main#content {
     padding: 20px 16px;
+    flex: 1;
   }
 
   #list-controls {
