@@ -19,7 +19,7 @@ html {
 ──────────────────────────────────────────────────────── */
 
 body {
-  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 95%;
   background-color: #b8966a;
   color: #1e0f06;
@@ -130,10 +130,9 @@ section {
 /* ── Typography ──────────────────────────────────────────── */
 
 h1, h2 {
-  font-family: 'Cinzel', 'Palatino Linotype', Georgia, serif;
+  font-family: 'Playfair Display', Georgia, serif;
   color: #3d2314;
   text-align: center !important;
-  letter-spacing: 0.03em;
 }
 
 h1 {
