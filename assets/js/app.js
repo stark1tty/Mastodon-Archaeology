@@ -266,6 +266,7 @@ function initSearchAndFilter () {
   }
 
   searchInput.addEventListener('input', applyFilter)
+  searchInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') applyFilter() })
   categorySelect.addEventListener('change', applyFilter)
 }
 
