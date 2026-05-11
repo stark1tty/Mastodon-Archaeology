@@ -55,26 +55,23 @@ nav#sidebar {
   text-align: center;
 }
 
-nav#sidebar ul {
-  list-style: none;
+nav#sidebar h3 {
   margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  font-size: 0.95rem;
+  font-weight: 600;
 }
 
-nav#sidebar ul li a {
+nav#sidebar h3 a {
   display: block;
   color: #e8c98a;
   text-decoration: none;
-  padding: 6px 10px;
+  padding: 7px 10px;
   border-radius: 4px;
-  font-size: 0.95rem;
   transition: background 0.15s, color 0.15s;
+  font-weight: 600;
 }
 
-nav#sidebar ul li a:hover {
+nav#sidebar h3 a:hover {
   background-color: #3d2314;
   color: #f5ead0;
 }
@@ -241,10 +238,8 @@ label {
     font-size: 1.5rem;
   }
 
-  nav#sidebar ul {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 4px;
+  nav#sidebar h3 {
+    display: inline-block;
   }
 
   #sidebar-footer {
