@@ -118,13 +118,12 @@ function buildUserSelectionForm (users) {
  }
 
  for (const user of users) {
-   // Structure:
-   // <div class="input-list-item">
-   //   <input name="selected_users" value="user.account" id="user.account">
-   //   <label for="user.account">Account (name)</label>
-   //   <a href="link">"Profile"</a>
-   //  <div>Keywords:
-   // </div>
+   if (user.account.trim() === '•••••') {
+     const heading = document.createElement('h3')
+     heading.textContent = user.name
+     container.appendChild(heading)
+     continue
+   }
 
    const wrapper = document.createElement('div')
    wrapper.classList.add('input-list-item')
